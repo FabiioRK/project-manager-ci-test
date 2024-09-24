@@ -2,13 +2,13 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_PATH = "/usr/local/bin/docker"  // Caminho para o binário do Docker
+        PATH = "/usr/local/bin:/bin:/usr/bin:/usr/local/bin/docker"
     }
 
     stages {
         stage('Build') {
             steps {
-                sh '${DOCKER_PATH} build -t project-manager .'
+                sh 'docker --version'
             }
         }
 
