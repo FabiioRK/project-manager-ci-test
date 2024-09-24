@@ -17,7 +17,7 @@ class Notice < ApplicationRecord
       if start_date > end_date
         errors.add(:base, "A data de início não pode ser maior que a data final.")
       end
-      if start_date < DateTime.now
+      if start_date <= DateTime.now
         errors.add(:base, "A data de início deve ser futura.")
       end
     end

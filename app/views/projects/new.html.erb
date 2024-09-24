@@ -1,7 +1,7 @@
 <h2>Cadastro de projeto</h2>
 
 <% if @project.errors.any? %>
-  <div id="error_explanation" data-turbo-cache="false">
+  <div class="alert alert-danger" id="error_explanation" data-turbo-cache="false">
     <h3><%= I18n.t("errors.messages.not_saved", count: @project.errors.count, resource: @project.class.model_name.human.downcase) %></h3>
     <ul>
       <% @project.errors.full_messages.each do |msg| %>
@@ -12,31 +12,31 @@
 <% end %>
 
 <%= form_for [@researcher, @project] do |f| %>
-  <div>
+  <div class="mb-3">
     <%= f.label :coordinator_id %>
     <%= f.collection_select :coordinator_id, @coordinators, :id, :name %>
   </div>
-  <div>
+  <div class="mb-3">
     <%= f.label :project_type %>
     <%= f.collection_select :project_type, Project.project_types, :first, :first %>
   </div>
-  <div>
+  <div class="mb-3">
     <%= f.label :institution %>
     <%= f.text_field :institution %>
   </div>
-  <div>
+  <div class="mb-3">
     <%= f.label :course %>
     <%= f.text_field :course %>
   </div>
-  <div>
+  <div class="mb-3">
     <%= f.label :study_area %>
     <%= f.text_field :study_area %>
   </div>
-  <div>
+  <div class="mb-3">
     <%= f.label :research_line %>
     <%= f.text_field :research_line %>
   </div>
-  <div>
+  <div class="mb-3">
     <%= f.label :ods %>
     <%= f.text_area :ods %>
   </div>

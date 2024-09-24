@@ -117,9 +117,13 @@
     
     </header>
     <main id="content">
-      <div>
-        <%= notice %>
-        <%= alert %>
+      <div class="text-center">
+        <div class="text-success">
+          <%= notice %>
+        </div>
+        <div class="text-danger">
+          <%= alert %>
+        </div>
       </div>
       <%= yield %>
     </main>
