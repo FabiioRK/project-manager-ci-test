@@ -1,12 +1,14 @@
 pipeline {
     agent any
 
+    environment {
+        DOCKER_PATH = "/usr/local/bin/docker"  // Caminho para o binário do Docker
+    }
+
     stages {
         stage('Build') {
             steps {
-                script {
-                    docker.build('my-rails-app')
-                }
+                sh '${DOCKER_PATH} build -t my-rails-app .'
             }
         }
 
