@@ -8,14 +8,14 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh '${DOCKER_PATH} build -t my-rails-app .'
+                sh '${DOCKER_PATH} build -t project-manager .'
             }
         }
 
         stage('Test') {
             steps {
                 script {
-                    docker.image('my-rails-app').inside {
+                    docker.image('project-manager').inside {
                         sh 'bundle exec rake test'
                     }
                 }
